@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>E2ESeleniumTest</groupId>
+  <artifactId>E2ESeleniumTest</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+        <!-- Selenium Java dependency -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.141.59</version>
+        </dependency>
+		  <dependency>				
+            <groupId>org.testng</groupId>								
+            <artifactId>testng</artifactId>								
+            <version>7.10.2</version>								
+            <scope>test</scope>							  			
+       </dependency>
+		 <dependency>
+		    <groupId>com.aventstack</groupId>
+		    <artifactId>extentreports</artifactId>
+		    <version>5.0.9</version> <!-- or the latest version -->
+		</dependency>
+
+        <!-- WebDriverManager to automatically manage browser drivers -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.5.0</version> <!-- Make sure to use the latest version -->
+        </dependency>
+
+        <!-- SLF4J for logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.9</version> <!-- Use the latest version of SLF4J -->
+        </dependency>
+
+        <!-- Logback for SLF4J logging implementation -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.4.11</version> <!-- Use the latest version of Logback -->
+        </dependency>
+
+        <!-- JUnit for testing (optional, if needed) -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.9.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.9.0</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>2.22.2</version>
+      <configuration>
+        <includes>
+          <include>**/*Test.java</include> 
+          <!-- or specify your TestNG XML if you're using TestNG -->
+          <!-- <include>**/*TestNG.xml</include> -->
+        </includes>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
+</project>
