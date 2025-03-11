@@ -10,6 +10,18 @@
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
         </dependency>
+         <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version>  
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok-mapstruct-binding</artifactId>
+            <version>0.2.0</version>
+            <scope>annotationProcessor</scope>
+        </dependency>
 		  <dependency>				
             <groupId>org.testng</groupId>								
             <artifactId>testng</artifactId>								
@@ -60,20 +72,40 @@
     </dependencies>
 
 
-<build>
-  <plugins>
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-surefire-plugin</artifactId>
-      <version>2.22.2</version>
-      <configuration>
-        <includes>
-          <include>**/*Test.java</include> 
-          <!-- or specify your TestNG XML if you're using TestNG -->
-          <!-- <include>**/*TestNG.xml</include> -->
-        </includes>
-      </configuration>
-    </plugin>
-  </plugins>
-</build>
+ <build>
+        <plugins>
+            <!-- ✅ Upgraded Maven Compiler Plugin -->
+             <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.10.1</version> <!-- Use a stable version -->
+            <configuration>
+                <source>17</source>
+                <target>17</target>
+                <annotationProcessorPaths>
+                    <path>
+                        <groupId>org.projectlombok</groupId>
+                        <artifactId>lombok</artifactId>
+                        <version>1.18.30</version>
+                    </path>
+                </annotationProcessorPaths>
+            </configuration>
+        </plugin>
+            <!-- ✅ Surefire Plugin for running TestNG -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M9</version>  
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include> 
+                    </includes>
+                    <suiteXmlFiles>
+                    <suiteXmlFile>testng.xml</suiteXmlFile>
+                	</suiteXmlFiles>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
 </project>

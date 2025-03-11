@@ -1,0 +1,4 @@
+com\e2e\pages\HomePage.class
+com\e2e\util\TestUtility.class
+com\e2e\pages\LoginPage.class
+com\e2e\base\BaseClass.class
